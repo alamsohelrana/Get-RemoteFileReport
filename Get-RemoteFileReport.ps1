@@ -60,7 +60,7 @@ Function Get-MailBody{
       <p class=MsoNormal><b><span style='color:#203864;mso-themecolor:accent1;
       mso-themeshade:128;mso-style-textfill-fill-color:#203864;mso-style-textfill-fill-themecolor:
       accent1;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
-      lumm=50000'>Size(KB)<o:p></o:p></span></b></p>
+      lumm=50000'>Size<o:p></o:p></span></b></p>
       </td>
      </tr>
 
@@ -224,7 +224,7 @@ ForEach($RemoteFolderName in $RemoteFolderNames){
         $MailBody = Get-MailBody -FolderName $RemoteFolderName
         $Files = Get-ChildItem -LiteralPath $RemoteFolderFullPath -force # filter output according to need... Do we need only files and not the subfolders ? etc.
         ForEach($File in $Files){
-            $MailBody = Append-MailBody -AppendFileName "$($File.Name)" -AppendFileLastWriteTime "$($File.LastWriteTime | Out-String )" -AppendFileSize "$("{0:n2} KB" -f ($File.Length / 1KB))" -mailBody $MailBody
+            $MailBody = Append-MailBody -AppendFileName "$($File.Name)" -AppendFileLastWriteTime "$( ( $File.LastWriteTime | Out-String ).trim() )" -AppendFileSize "$("{0:n2} KB" -f ($File.Length / 1KB))" -mailBody $MailBody
         }
         $MailBody = Sanitize-MailBody -mailBody $MailBody
         Send-MailMessage -Body $MailBody -BodyAsHtml -From $SenderMailID -SmtpServer $SMTPServerName -To $ReveipientsList `
