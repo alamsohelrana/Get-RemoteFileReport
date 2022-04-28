@@ -1,5 +1,4 @@
-﻿
-#---------------------------------------------------------------------------------
+﻿#---------------------------------------------------------------------------------
 ###   fill out the variables as per requirement  ###
 $SMTPServerName      = 'Enterprise-SMTPServer-DNS-Name'
 $RecipientsList     = "alam.sohel1990@gmail.com;anuj.ray@gmail.com"
@@ -98,10 +97,10 @@ Function Get-MailBody{
     </body>
 "@ 
 
-    $MailBody = $MailBody -replace 'FOLDER_NAME'		 , $FolderName
-    $MailBody = $MailBody -replace 'DATE_TIME'			 , (Get-Date -F 'dd-MMM-yyyy hh:mm' )
-	$MailBody = $MailBody -replace 'MailBody_Signature'  , $MailBodySignature
-
+    $MailBody = $MailBody -replace 'FOLDER_NAME'         , $FolderName
+    $MailBody = $MailBody -replace 'DATE_TIME'           , (Get-Date -F 'dd-MMM-yyyy hh:mm' )
+    $MailBody = $MailBody -replace 'MailBody_Signature'  , $MailBodySignature
+	
     return $MailBody
 }
 
