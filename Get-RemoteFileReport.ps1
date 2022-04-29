@@ -1,7 +1,7 @@
-﻿#---------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------
 ###   fill out the variables as per requirement  ###
 $SMTPServerName      = 'Enterprise-SMTPServer-DNS-Name'
-$RecipientsList     = "alam.sohel1990@gmail.com;anuj.ray@gmail.com"
+$RecipientsList      = "alam.sohel1990@gmail.com;anuj.ray@gmail.com"
 $SenderMailID        = "anuj.ray@gmail.com"
 $RemoteServerPath    = "\\server\REmoteFolderPath"
 $RemoteFolderNames   = "FOLDER1;FOLDER2;FOLDER3"
